@@ -1,0 +1,68 @@
+{
+  "name": "dsh-talk-to-speech",
+  "version": "1.0.0",
+  "description": "Push-to-talk dictation for the DeepSeek Harness Web UI: hold a key to record, release to transcribe into the composer draft.",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "dictation",
+    "push-to-talk",
+    "speech-to-text",
+    "cordis",
+    "plugin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arkit003/dsh-talk-to-speech.git"
+  },
+  "homepage": "https://github.com/Arkit003/dsh-talk-to-speech#readme",
+  "bugs": {
+    "url": "https://github.com/Arkit003/dsh-talk-to-speech/issues"
+  },
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "locale/*.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "icon": "./icon.svg",
+  "meta": {
+    "title": "Talk to Speech",
+    "description": "Hold a key to record, release to transcribe into the draft."
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-primitives",
+        "@deepseek-ai/dsh-api-gateway",
+        "@deepseek-ai/dsh-client-ui-plugin-manager"
+      ],
+      "platform": "web",
+      "external": [
+        "@deepseek-ai/dsh-api-gateway/client"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.0.4"
+  }
+}

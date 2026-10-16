@@ -1,0 +1,17 @@
+# Talk to Speech — push-to-talk dictation for the DSH Web UI.
+#
+# Prerequisite: the shipped voice-input bundle supplies the speech backend (the
+# `speech` Remote, the speech-to-text Host services and the recognition model).
+# Enable that bundle first; this bundle replaces its microphone row.
+#
+# Its `ui-voice-input` row owns the single-seat conversation.input.activity
+# slot, so it is disabled here and this bundle's client half takes that seat.
+# The Loader reports a missing patch id as a warning and skips it, never as a
+# load failure, so installing this bundle on its own is safe.
+- id: ui-voice-input
+  disabled: true
+
+- insert:
+    - id: ui-talk-to-speech
+      name: dsh-talk-to-speech
+      config: {}
